@@ -10,9 +10,10 @@ const UserSchema = new mongoose.Schema({
     role: { type: String, defalt: "user", lowercase: true }, //user,writer,admin maybe increment
     images: Array,
     email: String,
-    followers: Array,
-    followings: Array,
-    favorites: Array, // later two collection 1-FavoriteSubjects for subject ,2-toReadList for reading
+    followers: {type:Array,default:[]},
+    followings: {type:Array,default:[]},
+    favorites: [{type:mongoose.Types.ObjectId,ref:"FavoriteSubjects"}], // later two collection 1-FavoriteSubjects for subject ,2-toReadList for reading
+    toReadList:[{type:mongoose.Types.ObjectId,ref:"ReadList"}],
     dateofbirth: String,
     gender: { type: String, enum: ["male", "female"] },
     city: String,
