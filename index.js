@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
+const config = require("./src/v1/config"); 
+const loaders = require("./src/v1/config"); 
 
+//dotenv config
+config();
+//DB configuration
+loaders();
 
 
 
